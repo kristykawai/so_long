@@ -41,10 +41,12 @@ $(MINILIBX):
 
 clean:
 				@$(RM) $(OBJ)
+#				make -C $(LIBFT_PATH) clean
 				@echo -e "$(YELLOW)object files deleted!$(DEFAULT)"
 
 fclean:			clean
 				@$(RM) $(NAME)
+#				make -C $(LIBFT_PATH) fclean
 				@echo -e "$(RED)all deleted!$(DEFAULT)"
 
 re:				fclean all
