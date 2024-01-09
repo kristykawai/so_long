@@ -6,7 +6,7 @@
 /*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:46:28 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/08 18:09:24 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/09 15:36:04 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int argb_to_int(float opac, float r, float g, float b)
 
 int	main(void)
 {
+	
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
