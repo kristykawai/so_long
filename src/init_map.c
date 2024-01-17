@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:08:12 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/17 23:12:15 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/17 23:30:09 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_map(t_game *game)
 	is_emtpy_file(line);
 	while (line && !(line[0] == '\n'))
 	{
-		game->map.repo[i] = malloc(sizeof(char) * (ft_strlen(line) + 1));
+		game->map.repo[i] = malloc(sizeof(char) * (ft_readline(line) + 1));
 		if (!game->map.repo[i])
 			ft_error_general("Failed to allocate memory for map row.");
 		ft_strlcpy(game->map.repo[i], line, ft_strlen(line) + 1);
@@ -57,4 +57,3 @@ int	check_map_len(t_game *game)
 	}
 	return 1;
 }
-
