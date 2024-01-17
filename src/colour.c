@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colour.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:30:13 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/17 16:22:11 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/17 21:29:13 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int argb_to_int(float opac, float r, float g, float b)
     color |= (int)(b * 255) ;
     color |= (int)(g * 255) << 8;
     color |= (int)(r * 255) << 16;
-    color |= (int)(opac * 255)<< 24;ß
+    color |= (int)(opac * 255)<< 24;
 
     return (color);
 }
