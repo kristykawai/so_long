@@ -8,7 +8,10 @@ RM			=	rm -rf
 HEADER_SRCS	=	so_long.h 
 HEADER_DIR	=	includes/
 HEADER		=	$(addprefix $(HEADER_DIR), $(HEADER_SRCS))
-SRCS		=	main.c
+SRCS		=	main.c ft_error.c init_game.c \
+				init_layer.c init_map.c \
+				utility.c
+
 
 SRC_DIR		=	src/
 SRC_PATH	=	$(addprefix $(SRC_DIR), $(SRCS))

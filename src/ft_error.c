@@ -6,11 +6,12 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:53:17 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/17 23:04:50 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/18 10:11:58 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
+
 void	ft_error_general(char *msg)
 {
 	ft_printf("[ERROR] %s\n", msg);

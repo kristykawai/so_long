@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/17 22:41:34 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/18 10:16:53 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <limits.h>
 # include <math.h> 
 # include <OpenGL/gl.h>
+# include <fcntl.h>
+# include <unistd.h>
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
 
@@ -99,19 +101,25 @@ typedef struct s_game
 
 /* error */
 void	ft_error_general(char *msg);
-// void	ft_error_and_free_map(char *msg, t_game *game);
-// void	ft_free_map_repo(char **target);
-// void	ft_free_map_fill(char **map, int cols);
+void	ft_error_and_free_map(char *msg, t_game *game);
+void	ft_free_map_repo(char **target);
+void	ft_free_map_fill(char **map, int cols);
 
 /*init_layer*/
-void	check_argument(int ac, char **av, t_game *game)
+void	check_argument(int ac, char **av);
+
+/*init_game*/
 void	init_value(t_game *game);
 void	set_player_position(t_multi *info, t_position *position);
 void	init_mlx(t_game *game);
 
 /*init_map*/
+void	is_emtpy_file(char *line);
+void	init_map(t_game *game);
+int		check_map_len(t_game *game);
 
-
+/*utility*/
+int		ft_readline(char *str);
 
 
 #endif

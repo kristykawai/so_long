@@ -6,13 +6,13 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:42:12 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/17 23:12:19 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/18 10:13:16 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
-void	check_argument(int ac, char **av, t_game *game)
+void	check_argument(int ac, char **av)
 {
 	int	file_len;
 

@@ -6,11 +6,11 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:09:54 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/17 23:11:00 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/18 10:11:55 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	init_value(t_game *game)
 {
