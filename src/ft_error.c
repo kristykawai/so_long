@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:53:17 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/18 10:11:58 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/18 17:00:24 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,34 @@ void	ft_error_and_free_map(char *msg, t_game *game)
 	exit(1);
 }
 
-void	ft_free_map_fill(char **map, int cols)
+void	ft_free_map_fill(char **matrix, int cols_to_free)
 {
 	int	i;
 
-	if (!map || !*map)
-		ft_error_general("Map data not found or invalid.");
 	i = 0;
-	while (i < cols && map[i] != NULL)
+	if (!matrix || !*matrix)
+		ft_error_general("Invalid Map.");
+	while (i < cols_to_free && matrix[i] != NULL)
 	{
-		free(map[i]);
+		free(matrix[i]);
 		i++;
 	}
-	free(map);
-	map = NULL;
+	free(matrix);
+	matrix = NULL;
 }
 
-void	ft_free_map_repo(char **target)
+void	ft_free_map_repo(char **matrix)
 {
 	int	i;
 
-	if (!target || !*target)
-		ft_error_general("Map data not found or invalid.");
 	i = 0;
-	while (target[i] != NULL)
+	if (!matrix || !*matrix)
+		ft_error_general("Invalid Map.");
+	while (matrix[i] != NULL)
 	{
-		free(target[i]);
+		free(matrix[i]);
 		i++;
 	}
-	free(target);
-	target = NULL;
+	free(matrix);
+	matrix = NULL;
 }

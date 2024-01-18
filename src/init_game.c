@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:09:54 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/18 10:47:07 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/18 15:18:29 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	init_mlx(t_game *game)
 		ft_error_and_free_map("Failed to initialize MLX.", game);
 		exit(1);
 	}
-	game->mlx_win = mlx_new_window(game->mlx, TILE_WIDTH * game->map.rows, \
-		TILE_HEIGHT * game->map.columns, "so long");
+	game->mlx_win = mlx_new_window(game->mlx, TILE_WIDTH * game->map.columns, \
+		TILE_HEIGHT * game->map.rows, "so long");
 }

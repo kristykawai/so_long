@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/18 10:16:53 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/18 17:25:07 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ typedef struct s_game
 /* error */
 void	ft_error_general(char *msg);
 void	ft_error_and_free_map(char *msg, t_game *game);
-void	ft_free_map_repo(char **target);
-void	ft_free_map_fill(char **map, int cols);
+void	ft_free_map_repo(char **matrix);
+void	ft_free_map_fill(char **matrix, int cols_to_free);
 
 /*init_layer*/
 void	check_argument(int ac, char **av);
@@ -115,12 +115,15 @@ void	init_mlx(t_game *game);
 
 /*init_map*/
 void	is_emtpy_file(char *line);
-void	init_map(t_game *game);
+void	map_2d_malloc(t_game *game);
 int		check_map_len(t_game *game);
+void	init_map(t_game *game);
+int		check_enclosed_wall(t_game *game);
+void	check_valid_map(t_game *game);
 
 /*utility*/
 int		ft_readline(char *str);
-
+void	printCharMatrix(char** matrix, int rows, int cols);
 
 #endif
 
