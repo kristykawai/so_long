@@ -6,7 +6,7 @@
 /*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 15:45:37 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/19 17:17:15 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,14 @@ typedef struct s_game
 	int			finish_game;
 }				t_game;
 
-/* error */
+/* ft_error */
 void	ft_error_general(char *msg);
 void	ft_error_and_free_map(char *msg, t_game *game);
 void	ft_free_map_repo(char **matrix);
 void	ft_free_map_fill(char **matrix, int cols_to_free);
 
+/* floodfill */
+void	ft_mcpy_fill(t_game *game);
 
 /*parser_input*/
 void	check_argument(int ac, char **av);

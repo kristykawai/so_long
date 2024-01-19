@@ -6,13 +6,11 @@
 /*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:42:12 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 15:51:53 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/19 17:18:49 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-//criteria: 1 exit, 1 player, flood fill?
 
 int	check_valid_character(const char *s, int c)
 {
@@ -41,6 +39,16 @@ void	count_map_entities(char c, t_game *game, unsigned int x, unsigned int y)
 		game->map.floor++;
 	else if (c == CHAR_EXIT)
 		game->map.exits++;
+}
+
+void	check_required_entities(t_game *game)
+{
+	if (game->map.collects < 1)
+		ft_error_and_free_map("Invalid number of collectable, more than one is required", game);
+	if (game->map.exits != 1)
+		ft_error_and_free_map("Invalid number of exit, only exit is allowed", game);
+	if (game->map.player != 1)
+		ft_error_and_free_map("Invalid number of player, only one is allowed", game);
 }
 
 void check_enclosed_wall(t_game *game, unsigned int x, unsigned int y)
@@ -72,4 +80,7 @@ void init_layer(t_game *game)
 		}
 		y++;
 	}
+	check_required_entities(game);
+	ft_mcpy_fill(game);
+	// flood_loop(game, game->map.fill, 'X');
 }

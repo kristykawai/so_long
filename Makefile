@@ -10,7 +10,7 @@ HEADER_DIR	=	includes/
 HEADER		=	$(addprefix $(HEADER_DIR), $(HEADER_SRCS))
 SRCS		=	main.c ft_error.c init_game.c \
 				init_layer.c init_map.c \
-				utility.c parser_input.c
+				utility.c parser_input.c floodfill.c\
 
 
 SRC_DIR		=	src/
