@@ -6,7 +6,7 @@
 /*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 12:34:35 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/19 15:45:37 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@
 # define TILE_WIDTH  64
 # define TILE_HEIGHT 64
 
-# define CHAR_WALL			'W'
+# define CHAR_MAP			"01PEC"
+# define CHAR_WALL			'1'
 # define CHAR_EXIT			'E'
 # define CHAR_PLAYER		'P'
 # define CHAR_COLLLECT		'C'
@@ -109,11 +110,14 @@ void	ft_free_map_fill(char **matrix, int cols_to_free);
 /*parser_input*/
 void	check_argument(int ac, char **av);
 void	is_emtpy_file(char *line);
-int		check_map_len(t_game *game);
-int		check_enclosed_wall(t_game *game);
-void	check_valid_map(t_game *game);
+int		check_row_len(t_game *game);
+void	check_valid_map_size(t_game *game);
 
 /*init_layer*/
+int		check_valid_character(const char *s, int c);
+void	count_map_entities(char c,t_game *game, unsigned int x, unsigned int y);
+void	check_enclosed_wall(t_game *game, unsigned int x, unsigned int y);
+void	init_layer(t_game *game);
 
 /*init_game*/
 void	init_value(t_game *game);

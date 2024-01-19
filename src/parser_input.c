@@ -6,7 +6,7 @@
 /*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:18:40 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 12:34:30 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/19 15:33:51 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	is_emtpy_file(char *line)
 		ft_error_general("Empty map.");
 }
 
-int	check_map_len(t_game *game)
+int	check_row_len(t_game *game)
 {
 	int expected_columns;
 	int i;
@@ -47,37 +47,10 @@ int	check_map_len(t_game *game)
 	return (1);
 }
 
-int	check_enclosed_wall(t_game *game)
-{
-	int i;
-	int max_coor_x;
-	int max_coor_y;
-
-	i = -1;
-	max_coor_x = game->map.columns;
-	max_coor_y = game->map.rows;
-	while (++i < max_coor_y)
-	{
-		if (game->map.repo[0][i] != CHAR_WALL && 
-			game->map.repo[max_coor_x][i] != CHAR_WALL)
-			return (0);
-	}
-	i = -1;
-	while (++i < max_coor_x)
-	{
-		if (game->map.repo[i][0] != CHAR_WALL && 
-			game->map.repo[i][max_coor_y] != CHAR_WALL)
-			return (0);
-	}
-	return (1);
-}
-
-void check_valid_map(t_game *game)
+void	check_valid_map_size(t_game *game)
 {
 	if (game->map.rows > MAP_HEIGHT / TILE_HEIGHT)
 		ft_error_and_free_map("Map is too big.\n", game);
-	else if (!check_map_len(game))
+	else if (!check_row_len(game))
 		ft_error_general("Invalid map: not retangular.");
-	else if (!check_enclosed_wall(game))
-		ft_error_general("Invalid map: not enclosed wall.");
 }

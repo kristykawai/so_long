@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utility.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:26:06 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/18 16:53:39 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/19 15:09:49 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void printCharMatrix(char **matrix, int rows, int cols)
             ft_printf("%c", matrix[i][j]);
 			j++;
         }
-        ft_printf("\n");
+        // ft_printf("\n");
 		i++;
     }
 }
