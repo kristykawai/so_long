@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:46:28 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/18 17:34:10 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/19 12:34:33 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-
 
 int	main(int ac, char **av)
 {
 	t_game		game;
 	// ma_result	result;
 	// ma_engine	engine;
+	
 	check_argument(ac, av);
 	game.fd = open(av[1], O_RDONLY);
 	if (game.fd < 0 || game.fd == 0)
