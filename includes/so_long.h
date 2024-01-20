@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 17:17:15 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/20 16:41:35 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,15 @@ typedef struct s_img
 
 typedef struct s_map
 {
-	char	**repo;
-	char	**fill;
-	int		columns;
-	int		rows;
-	int		collects;
-	int		player;
-	int		exits;
-	int		walls;
-	int		floor;
+	char			**repo;
+	char			**fill;
+	unsigned int	columns;
+	unsigned int	rows;
+	unsigned int	collects;
+	unsigned int	player;
+	unsigned int	exits;
+	unsigned int	walls;
+	unsigned int	floor;
 }				t_map;
 
 typedef struct s_position
@@ -108,6 +108,8 @@ void	ft_free_map_fill(char **matrix, int cols_to_free);
 
 /* floodfill */
 void	ft_mcpy_fill(t_game *game);
+void	check_flood_fill_remain(t_game *game);
+void	flood_fill_check(t_game	*game, char replacement);
 
 /*parser_input*/
 void	check_argument(int ac, char **av);

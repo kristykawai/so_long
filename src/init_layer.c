@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_layer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:42:12 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 17:18:49 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/20 16:40:34 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,5 @@ void init_layer(t_game *game)
 	}
 	check_required_entities(game);
 	ft_mcpy_fill(game);
-	// flood_loop(game, game->map.fill, 'X');
+	flood_fill_check(game,'X');
 }

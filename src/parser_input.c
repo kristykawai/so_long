@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:18:40 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 15:33:51 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/20 16:42:07 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	is_emtpy_file(char *line)
 
 int	check_row_len(t_game *game)
 {
-	int expected_columns;
-	int i;
+	unsigned int	expected_columns;
+	unsigned int	i;
 
 	i = 1;
 	expected_columns = ft_strlen(game->map.repo[0]);
