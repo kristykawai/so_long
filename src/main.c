@@ -6,17 +6,18 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:46:28 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/21 17:38:40 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/21 23:13:57 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../miniaudio/miniaudio.h"
 
 int	main(int ac, char **av)
 {
 	t_game		game;
-	// ma_result	result;
-	// ma_engine	engine;
+	ma_result	result;
+	ma_engine	engine;
 	
 	check_argument(ac, av);
 	game.fd = open(av[1], O_RDONLY);
@@ -28,9 +29,12 @@ int	main(int ac, char **av)
 	init_layer(&game);
 	init_mlx(&game);
 	place_texture(&game);
-	// result = ma_engine_init(NULL, &engine);
-	// ma_engine_play_sound(&engine, WAV_MUSIC, NULL);
+	result = ma_engine_init(NULL, &engine);
+	ma_engine_play_sound(&engine, WAV_MUSIC, NULL);
+	if (result != MA_SUCCESS)
+        return (-1);  // Failed to initialize the engine.
 	// mlx_key_hook(game.mlx, &key_hook, &game.mlx);
 	mlx_loop(game.mlx);
+	ma_engine_uninit(&engine);
 	// clean_up(&game, &engine);
 }

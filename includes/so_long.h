@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/21 17:43:06 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/21 22:37:16 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
+# include "../miniaudio/miniaudio.h"
 
 /*define*/
 # define MAP_WIDTH	6400 
@@ -43,6 +44,9 @@
 # define XPM_PLAYER			"./assets/xpm/player.xpm"
 # define XPM_WALL			"./assets/xpm/wall.xpm"
 
+/* miniaudio */
+# define MINIAUDIO_IMPLEMENTATION
+/* audio path */
 # define WAV_MUSIC			"./assets/music/346_Town.wav"
 
 
