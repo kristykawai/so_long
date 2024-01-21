@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:09:54 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/19 12:34:23 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/21 17:40:44 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_value(t_game *game)
 	game->map.repo = NULL;
 	game->count = 0;
 	game->finish_game = 0;
+	game->pixel = TILE_WIDTH;
 	game->map.fill = NULL;
 }
 
@@ -34,7 +35,7 @@ void	set_player_position(t_multi *info, t_position *position)
 {
 	info->x = position->x;
 	info->y = position->y;
-	ft_printf("Player position set to (%d,%d)\n", position->x, position->y);
+	ft_printf("Player position set to (X%d,Y%d)\n", position->x, position->y);
 }
 
 void	init_mlx(t_game *game)
@@ -47,5 +48,5 @@ void	init_mlx(t_game *game)
 		exit(1);
 	}
 	game->mlx_win = mlx_new_window(game->mlx, TILE_WIDTH * game->map.columns, \
-		TILE_HEIGHT * game->map.rows, "so long");
+		TILE_HEIGHT * game->map.rows, "Ninja");
 }

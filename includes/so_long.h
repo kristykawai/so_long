@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/20 16:41:35 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/21 17:43:06 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@
 # define CHAR_COLLLECT		'C'
 # define CHAR_FLOOR			'0'
 
-# define XMP_COLLECTABLE	"./assets/xmp/collectable.xmp"
-# define XMP_EXIT_CLOSE		"./assets/xmp/exit_close.xmp"
-# define XMP_EXIT_OPEN		"./assets/xmp/exit_open.xmp"
-# define XMP_FLOOR			"./assets/xmp/floor.xmp"
-# define XMP_PLAYER			"./assets/xmp/player.xmp"
-# define XMP_WALL			"./assets/xmp/wall.xmp"
+# define XPM_COLLECTABLE	"./assets/xpm/collectable.xpm"
+# define XPM_EXIT_CLOSE		"./assets/xpm/exit_close.xpm"
+# define XPM_EXIT_OPEN		"./assets/xpm/exit_open.xpm"
+# define XPM_FLOOR			"./assets/xpm/floor.xpm"
+# define XPM_PLAYER			"./assets/xpm/player.xpm"
+# define XPM_WALL			"./assets/xpm/wall.xpm"
 
 # define WAV_MUSIC			"./assets/music/346_Town.wav"
 
@@ -58,11 +58,10 @@ typedef struct s_img
 {
 	char		*floor;
 	char		*wall;
-	t_multi		exits_open;
-	t_multi		exits_close;
+	t_multi		exit_open;
+	t_multi		exit_close;
 	t_multi		player;
-	t_multi		collect[1000];
-
+	t_multi		collect[100];
 }				t_img;
 
 
@@ -97,6 +96,7 @@ typedef struct s_game
 	t_map		map;
 	t_position	position;
 	int			count;
+	int			pixel;
 	int			finish_game;
 }				t_game;
 
@@ -132,18 +132,20 @@ void	init_mlx(t_game *game);
 void	map_2d_malloc(t_game *game);
 void	init_map(t_game *game);
 
+/*init_map_texture*/
+void	place_texture(t_game *game);
+void	place_floor_with_texture(t_game *game);
+void	place_layer_with_texture(t_game *game);
+
+/*init_image*/
+void	init_player(t_game *game, int x, int y);
+void	init_collect(t_game *game, int x, int y, int *count);
+void	init_exit(t_game *game, int x, int y);
+
+
 /*utility*/
 int		ft_readline(char *str);
 void	printCharMatrix(char** matrix, int rows, int cols);
-
+void	place_xpm_to_img(t_game *game, char **img_path, char *xpm_path);
+void	ft_mlx_image_to_window(t_game *game, char *mlx_img, int x, int y);
 #endif
-
-//unsure
-// typedef struct	s_data 
-// {
-// 	void	*img;
-// 	char	*addr;
-// 	int		bits_per_pixel;
-// 	int		line_length;
-// 	int		endian;
-// }	t_data;

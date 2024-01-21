@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:46:28 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 17:02:11 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/21 17:38:40 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	main(int ac, char **av)
 	init_map(&game);
 	check_valid_map_size(&game);
 	init_layer(&game);
-	// init_mlx(&game);
-	// place_texture(&game);
+	init_mlx(&game);
+	place_texture(&game);
 	// result = ma_engine_init(NULL, &engine);
 	// ma_engine_play_sound(&engine, WAV_MUSIC, NULL);
 	// mlx_key_hook(game.mlx, &key_hook, &game.mlx);
-	// mlx_loop(game.mlx);
+	mlx_loop(game.mlx);
 	// clean_up(&game, &engine);
 }
