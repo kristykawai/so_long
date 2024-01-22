@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:46:28 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/21 23:13:57 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/22 22:20:28 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 	ma_engine_play_sound(&engine, WAV_MUSIC, NULL);
 	if (result != MA_SUCCESS)
         return (-1);  // Failed to initialize the engine.
-	// mlx_key_hook(game.mlx, &key_hook, &game.mlx);
+	mlx_hook_event(&game);
 	mlx_loop(game.mlx);
 	ma_engine_uninit(&engine);
 	// clean_up(&game, &engine);

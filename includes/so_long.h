@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/21 22:37:16 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/22 22:39:33 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,26 @@
 /* audio path */
 # define WAV_MUSIC			"./assets/music/346_Town.wav"
 
+enum {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+} eventcode;
+
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_Q 12
+# define KEY_W 13
+# define ESC_KEY 53
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define KEY_DOWN 125
+# define KEY_UP 126
 
 /* struct */
 typedef struct s_multi
@@ -152,4 +172,12 @@ int		ft_readline(char *str);
 void	printCharMatrix(char** matrix, int rows, int cols);
 void	place_xpm_to_img(t_game *game, char **img_path, char *xpm_path);
 void	ft_mlx_image_to_window(t_game *game, char *mlx_img, int x, int y);
+
+/*event.c*/
+int		keyboard(int keyhook, t_game *game);
+void	exit_game();
+int		close_the_win(t_game *game);
+int		mlx_hook_event(t_game *game);
+
+
 #endif

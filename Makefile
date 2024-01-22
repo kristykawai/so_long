@@ -11,7 +11,7 @@ HEADER		=	$(addprefix $(HEADER_DIR), $(HEADER_SRCS))
 SRCS		=	main.c ft_error.c init_game.c \
 				init_layer.c init_map.c \
 				utility.c parser_input.c floodfill.c\
-				init_image.c init_map_texture.c
+				init_image.c init_map_texture.c event.c
 
 
 SRC_DIR		=	src/
