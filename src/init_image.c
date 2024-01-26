@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:52:03 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/21 17:26:26 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/26 22:05:29 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_player(t_game *game, int x, int y)
 	ft_mlx_image_to_window(game->mlx, game->img.player.image, x, y);
 }
 
-void	init_collect(t_game *game, int x, int y, int *count)
+void	init_collect(t_game *game, int x, int y, int	*count)
 {
 	place_xpm_to_img(game, &game->img.collect[*count].image, XPM_COLLECTABLE);
 	game->img.collect[*count].x = x;

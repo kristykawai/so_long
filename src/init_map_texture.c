@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:10:21 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/21 17:36:39 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/26 22:09:02 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	place_texture(t_game *game)
 
 void	place_floor_with_texture(t_game *game)
 {
-	unsigned int	y;
-	unsigned int	x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (y < game->map.rows)
@@ -52,8 +52,8 @@ void	place_floor_with_texture(t_game *game)
 
 void	place_layer_with_texture(t_game *game)
 {
-	unsigned int	y;
-	unsigned int	x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (y < game->map.rows)

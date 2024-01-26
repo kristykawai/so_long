@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:19:04 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/20 16:42:36 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/26 22:08:22 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_mcpy_fill(t_game *game)
 	 game->map.fill[y] = NULL;
 }
 
-void	flood_fill_recursive(t_game *game, unsigned int x, unsigned int y, char replacement)
+void	flood_fill_recursive(t_game *game, int x, int y, char replacement)
 {
 	if(x < 0 || x >= game->map.columns || y < 0 || y >= game->map.rows)
 		return	;
@@ -64,8 +64,8 @@ void	flood_fill_recursive(t_game *game, unsigned int x, unsigned int y, char rep
 
 void	check_flood_fill_remain(t_game *game)
 {
-	unsigned int	y;
-	unsigned int	x;
+	int	y;
+	int	x;
 	
 	y = 0;
     while (y < game->map.rows) 
