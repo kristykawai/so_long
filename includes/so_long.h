@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/26 23:47:32 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 13:51:06 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ void	place_xpm_to_img(t_game *game, char **img_path, char *xpm_path);
 void	ft_mlx_image_to_window(t_game *game, char *mlx_img, int x, int y);
 
 /*event.c*/
-int		handle_keypress(int keycode);
+int		handle_keypress(int keycode, t_game *game);
 int		mlx_hook_event(t_game *game);
 
 /*delete image*/
@@ -184,5 +184,11 @@ void	delete_all_image(t_game *game);
 
 void	clean_up(t_game *game);
 
+
+/*movement*/
+void move_up(t_game *game);
+void move_down(t_game *game);
+void move_right(t_game *game);
+void move_left(t_game *game);
 
 #endif

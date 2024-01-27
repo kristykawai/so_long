@@ -6,26 +6,41 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:50:47 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/26 23:48:00 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 14:05:29 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void move_up()
+void move_up(t_game *game)
 {
+	// game->map.repo[game->position.y][game->position.x] = '0';
+	// game->map.repo[game->position.y-1][game->position.x] = 'P';
+	// game->position.move++;
+	// place_layer_with_texture(game);
+	// display_movements_on_screen(game);
+	// game->map.repo[y][x] = '0';
+		if(game)
 	write(1,"u",1);
 }
-void move_down()
+void move_down(t_game *game)
 {
+	if(game)
 	write(1,"d",1);
 }
-void move_right()
+void move_right(t_game *game)
 {
+	if(game)
 	write(1,"r",1);
 }
-void move_left()
+void move_left(t_game *game)
 {
+	// game->map.repo[game->position.y][game->position.x] = '0';
+	// game->map.repo[game->position.y][game->position.x-1] = 'P';
+	// game->position.move++;
+	// place_layer_with_texture(game);
+	// display_movements_on_screen(game);
+	if(game)
 	write(1,"l",1);
 }
 
@@ -35,22 +50,31 @@ int	exit_game()
 	exit(0);
 }
 
-int	handle_keypress(int keycode)
+//update function
+//movement direction x, y 
+//move position
+
+int	handle_keypress(int keycode, t_game *game)
 {
-	if (keycode == KEY_UP)
-		move_up();
-	else if (keycode == KEY_DOWN)
-		move_down();
-	else if (keycode == KEY_RIGHT)
-		move_right();
-	else if (keycode == KEY_LEFT)
-		move_left();
+	if (keycode == KEY_UP || keycode == KEY_W)
+		move_up(game);
+	else if (keycode == KEY_DOWN || keycode == KEY_S)
+		move_down(game);
+	else if (keycode == KEY_RIGHT || keycode == KEY_D)
+		move_right(game);
+	else if (keycode == KEY_LEFT ||keycode == KEY_A)
+		move_left(game);
 	else if (keycode == ESC_KEY)
 		exit_game();
 	else if (keycode == KEY_Q)
 		exit_game();
 	return (0);
 }
+
+
+
+
+
 
 int	mlx_hook_event(t_game *game)
 {
