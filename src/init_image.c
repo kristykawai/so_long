@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:52:03 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/26 22:05:29 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 16:15:45 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_player(t_game *game, int x, int y)
 {
 	place_xpm_to_img(game, &game->img.player.image, XPM_PLAYER);
 	set_player_position(&game->img.player, &game->position);
-	game->map.repo[y][x] = '0';
+	// game->map.repo[y][x] = '0';
 	ft_mlx_image_to_window(game->mlx, game->img.player.image, x, y);
 }
 

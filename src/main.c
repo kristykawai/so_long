@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:46:28 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/26 23:44:57 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 16:24:06 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 int	main(int ac, char **av)
 {
 	t_game		game;
-	// ma_result	result;
-	ma_engine	engine;
 
 	check_argument(ac, av);
 	game.fd = open(av[1], O_RDONLY);
@@ -41,14 +39,22 @@ int	main(int ac, char **av)
 	init_layer(&game);
 	init_mlx(&game);
 	place_texture(&game);
-	// result = ma_engine_init(NULL, &engine);
-	ma_engine_init(NULL, &engine);
-	ma_engine_play_sound(&engine, WAV_MUSIC, NULL);
-	// if (result != MA_SUCCESS)
-    // 	return (-1);  // Failed to initialize the engine.
-	mlx_hook_event(&game);
+	mlx_hook(game.mlx_win, ON_KEYDOWN, (1L << 0), handle_keypress, &game); 
+	mlx_hook(game.mlx_win, ON_DESTROY, (1L << 2), exit_game, &game);
+	mlx_loop_hook(game.mlx, update_game, &game);
 	mlx_loop(game.mlx);
-	ma_engine_uninit(&engine);
 	// clean_up(&game);
-	return(0);
+    return (0);
 }
+
+/* extra music
+ma_result	result;
+ma_engine	engine;
+
+result = ma_engine_init(NULL, &engine);
+ma_engine_init(NULL, &engine);
+ma_engine_play_sound(&engine, WAV_MUSIC, NULL);
+if (result != MA_SUCCESS)
+return (-1);  // Failed to initialize the engine.
+ma_engine_uninit(&engine);
+*/

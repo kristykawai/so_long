@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/27 13:51:06 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 16:13:49 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,5 +190,9 @@ void move_up(t_game *game);
 void move_down(t_game *game);
 void move_right(t_game *game);
 void move_left(t_game *game);
+int	exit_game(void);
 
+
+/*render*/
+int	update_game(void	*param);
 #endif

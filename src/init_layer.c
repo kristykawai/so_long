@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:42:12 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/20 16:40:34 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 15:39:59 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	check_required_entities(t_game *game)
 	if (game->map.collects < 1)
 		ft_error_and_free_map("Invalid number of collectable, more than one is required", game);
 	if (game->map.exits != 1)
-		ft_error_and_free_map("Invalid number of exit, only exit is allowed", game);
+		ft_error_and_free_map("Invalid number of exit, only 1 exit is allowed", game);
 	if (game->map.player != 1)
 		ft_error_and_free_map("Invalid number of player, only one is allowed", game);
 }
