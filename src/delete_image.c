@@ -6,20 +6,11 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:28:27 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/26 22:22:59 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 20:37:33 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void	mlx_delete_image(void *mlx, char *img)
-{
-	 if (img != NULL)
-	 {
-		mlx_destroy_image(mlx, img);
-        img = NULL;  // Set to NULL to avoid using freed memory
-    }
-}
 
 void	delete_item(t_game *game, int x, int y)
 {

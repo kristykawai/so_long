@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/27 16:13:49 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 20:39:20 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,11 +127,12 @@ typedef struct s_game
 /* ft_error */
 void	ft_error_general(char *msg);
 void	ft_error_and_free_map(char *msg, t_game *game);
-void	ft_free_map_repo(char **matrix);
 void	ft_free_map_fill(char **matrix, int cols_to_free);
+void	ft_free_map_repo(char **matrix);
 
 /* floodfill */
 void	ft_mcpy_fill(t_game *game);
+void	flood_fill_recursive(t_game *game, int x, int y, char replacement);
 void	check_flood_fill_remain(t_game *game);
 void	flood_fill_check(t_game	*game, char replacement);
 
@@ -143,6 +144,8 @@ void	check_valid_map_size(t_game *game);
 
 /*init_layer*/
 int		check_valid_character(const char *s, int c);
+void	count_map_entities(char c, t_game *game, unsigned int x, unsigned int y);
+void	check_required_entities(t_game *game);
 void	check_enclosed_wall(t_game *game, unsigned int x, unsigned int y);
 void	init_layer(t_game *game);
 
@@ -170,10 +173,14 @@ int		ft_readline(char *str);
 void	printCharMatrix(char** matrix, int rows, int cols);
 void	place_xpm_to_img(t_game *game, char **img_path, char *xpm_path);
 void	ft_mlx_image_to_window(t_game *game, char *mlx_img, int x, int y);
+void	mlx_delete_image(void *mlx, char *img);
 
 /*event.c*/
+void	move_up(t_game *game);
+void	move_down(t_game *game);
+void	move_right(t_game *game);
+void	move_left(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
-int		mlx_hook_event(t_game *game);
 
 /*delete image*/
 void	delete_item(t_game *game, int x, int y);
@@ -182,17 +189,14 @@ void	delete_player(t_game *game);
 void	delete_floor(t_game *game);
 void	delete_all_image(t_game *game);
 
-void	clean_up(t_game *game);
-
-
-/*movement*/
-void move_up(t_game *game);
-void move_down(t_game *game);
-void move_right(t_game *game);
-void move_left(t_game *game);
-int	exit_game(void);
-
+/*exit*/
+int		exit_game(void);
+int		exit_win_game(t_game *game);
 
 /*render*/
-int	update_game(void	*param);
+void	update_texture(t_game *game);
+int		update_game(void	*param);
+
+/*main*/
+// void	clean_up(t_game *game);
 #endif

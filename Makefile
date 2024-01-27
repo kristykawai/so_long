@@ -12,7 +12,7 @@ SRCS		=	main.c ft_error.c init_game.c \
 				init_layer.c init_map.c \
 				utility.c parser_input.c floodfill.c\
 				init_image.c init_map_texture.c event.c delete_image.c\
-				render.c
+				render.c exit.c
 
 SRC_DIR		=	src/
 SRC_PATH	=	$(addprefix $(SRC_DIR), $(SRCS))

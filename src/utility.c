@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:26:06 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/21 17:37:02 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 20:37:26 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void printCharMatrix(char **matrix, int rows, int cols)
             ft_printf("%c", matrix[i][j]);
 			j++;
         }
-        // ft_printf("\n");
+        ft_printf("\n");
 		i++;
     }
 }
@@ -60,5 +60,13 @@ void	ft_mlx_image_to_window(t_game *game, char *mlx_img, int x, int y)
 		ft_error_general("mlx image uninit");
 	}
 	mlx_put_image_to_window(game->mlx, game->mlx_win, mlx_img, TILE_WIDTH * x, TILE_HEIGHT * y);
-	// mlx_do_sync(game->mlx);
+}
+
+void	mlx_delete_image(void *mlx, char *img)
+{
+	 if (img != NULL)
+	 {
+		mlx_destroy_image(mlx, img);
+        img = NULL;
+    }
 }

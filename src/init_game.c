@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:09:54 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/21 17:40:44 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/27 20:42:15 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	init_value(t_game *game)
 {
-	game->position.x = 0; //start position x
-	game->position.y = 0; //start position y
+	game->position.x = 0;
+	game->position.y = 0;
 	game->position.move = 0;
-	game->map.columns = 0; //x
-	game->map.rows = 0; //y
+	game->map.columns = 0;
+	game->map.rows = 0;
 	game->map.collects = 0;
 	game->map.exits = 0;
 	game->map.player = 0;
@@ -40,7 +40,6 @@ void	set_player_position(t_multi *info, t_position *position)
 
 void	init_mlx(t_game *game)
 {
-	// mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
