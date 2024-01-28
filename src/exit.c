@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 20:27:53 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/27 20:28:15 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 22:35:04 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	exit_game(void)
 {
-	ft_printf("GAME EXITED!!\n");
+	ft_printf("Game exited.\n");
 	exit(0);
 }
 

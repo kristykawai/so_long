@@ -6,24 +6,22 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:46:28 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/27 16:24:06 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 23:05:21 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../miniaudio/miniaudio.h"
 
-// void	clean_up(t_game *game)
-// {
-// // 	// delete_all_image(game);
-// // 	// ft_free_map_repo(game->map.repo);
-// 	if(game)
-// 	write(1,"y",1);
-// // 	// mlx_destroy_window(game->mlx, game->mlx_win);		
-// // 	// game->mlx = NULL;
-// // 	// game->mlx_win = NULL;
-// // 	exit(0);
-// }
+void	clean_up(t_game *game)
+{
+	delete_all_image(game);
+	ft_free_map_repo(game->map.repo);
+	ft_free_map_fill(game->map.fill, game->map.columns);
+	mlx_destroy_window(game->mlx, game->mlx_win);		
+	game->mlx_win = NULL;
+	game->mlx = NULL;
+	exit(0);
+}
 
 int	main(int ac, char **av)
 {
@@ -43,18 +41,6 @@ int	main(int ac, char **av)
 	mlx_hook(game.mlx_win, ON_DESTROY, (1L << 2), exit_game, &game);
 	mlx_loop_hook(game.mlx, update_game, &game);
 	mlx_loop(game.mlx);
-	// clean_up(&game);
+	clean_up(&game);
     return (0);
 }
-
-/* extra music
-ma_result	result;
-ma_engine	engine;
-
-result = ma_engine_init(NULL, &engine);
-ma_engine_init(NULL, &engine);
-ma_engine_play_sound(&engine, WAV_MUSIC, NULL);
-if (result != MA_SUCCESS)
-return (-1);  // Failed to initialize the engine.
-ma_engine_uninit(&engine);
-*/

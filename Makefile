@@ -26,15 +26,12 @@ LIBFT		= $(LIBFT_PATH)/libft.a
 MINILIBX_PATH 	= ./minilibx
 MINILIBX		= $(MINILIBX_PATH)/libmlx.a
 
-#LIBRARY 3
-GIT_MUSIC = git clone https://github.com/mackron/miniaudio miniaudio
-MINIAUDIO_PATH 	= ./miniaudio
 
 #COMMANDS
 %.o: %.c $(HEADER) Makefile
 				@${CC} ${FLAGS} -c $< -o $@
 
-all:			$(LIBFT) $(MINILIBX) download_music $(NAME)
+all:			$(LIBFT) $(MINILIBX) $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -L$(LIBFT_PATH) -lft -L$(MINILIBX_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
@@ -57,16 +54,6 @@ fclean:			clean
 				@echo -e "$(RED)all deleted!$(DEFAULT)"
 
 re:				fclean all
-
-download_music:
-				@if [ ! -d "$(MINIAUDIO_PATH)" ]; then \
-				$(GIT_MUSIC); \
-				else \
-				echo "miniaudio already downloaded"; \
-				fi
-
-undownload_music:
-				@$(RM) $(MINIAUDIO_PATH)
 
 .PHONY:			all clean fclean re
 

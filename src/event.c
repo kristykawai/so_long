@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:50:47 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/27 20:35:18 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 22:32:56 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	move_up(t_game *game)
 		if(game->map.repo[game->position.y - 1][game->position.x] == CHAR_COLLLECT)
 			game->count++;
 		else if(game->map.repo[game->position.y - 1][game->position.x] == CHAR_EXIT 
-			&& game->count < game->map.collects)
+			&& !is_all_collected(game))
 			return	;
 		else if(game->map.repo[game->position.y - 1][game->position.x] == CHAR_EXIT 
-			&& game->count == game->map.collects)
+			&& is_all_collected(game))
 			exit_win_game(game);
 		game->map.repo[game->position.y][game->position.x] = CHAR_FLOOR;
 		game->map.repo[game->position.y - 1][game->position.x] = CHAR_PLAYER;
@@ -40,10 +40,10 @@ void	move_down(t_game *game)
 		if(game->map.repo[game->position.y + 1][game->position.x] == CHAR_COLLLECT)
 			game->count++;
 		else if(game->map.repo[game->position.y + 1][game->position.x] == CHAR_EXIT 
-			&& game->count < game->map.collects)
+			&& !is_all_collected(game))
 			return	;
 		else if(game->map.repo[game->position.y + 1][game->position.x] == CHAR_EXIT 
-		&& game->count == game->map.collects)
+		&& is_all_collected(game))
 			exit_win_game(game);
 		game->map.repo[game->position.y][game->position.x] = CHAR_FLOOR;
 		game->map.repo[game->position.y + 1][game->position.x] = CHAR_PLAYER;
@@ -60,10 +60,10 @@ void	move_right(t_game *game)
 		if(game->map.repo[game->position.y][game->position.x + 1] == CHAR_COLLLECT)
 			game->count++;
 		else if(game->map.repo[game->position.y][game->position.x + 1] == CHAR_EXIT 
-			&& game->count < game->map.collects)
+			&& !is_all_collected(game))
 			return	;
 		else if(game->map.repo[game->position.y][game->position.x + 1] == CHAR_EXIT 
-		&& game->count == game->map.collects)
+		&& is_all_collected(game))
 			exit_win_game(game);
 		game->map.repo[game->position.y][game->position.x] = CHAR_FLOOR;
 		game->map.repo[game->position.y][game->position.x + 1] = CHAR_PLAYER;
@@ -80,10 +80,10 @@ void	move_left(t_game *game)
 		if(game->map.repo[game->position.y][game->position.x - 1] == CHAR_COLLLECT)
 			game->count++;
 		else if(game->map.repo[game->position.y][game->position.x - 1] == CHAR_EXIT 
-			&& game->count < game->map.collects)
+			&& !is_all_collected(game))
 			return	;
 		else if(game->map.repo[game->position.y][game->position.x - 1] == CHAR_EXIT 
-		&& game->count == game->map.collects)
+		&& is_all_collected(game))
 			exit_win_game(game);
 		game->map.repo[game->position.y][game->position.x] = CHAR_FLOOR;
 		game->map.repo[game->position.y][game->position.x - 1] = 'P';

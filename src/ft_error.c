@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:53:17 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/19 12:34:20 by kchan            ###   ########.fr       */
+/*   Updated: 2024/01/28 23:06:28 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,20 @@ void	ft_error_general(char *msg)
 	exit(1);
 }
 
-void	ft_error_and_free_map(char *msg, t_game *game)
+void	ft_free_map_repo(char **matrix)
 {
-	ft_printf("[ERROR] %s\n", msg);
-	ft_free_map_repo(game->map.repo);
-	if (game->map.fill != NULL)
-		ft_free_map_fill(game->map.fill, game->map.columns);
-	exit(1);
+	int	i;
+
+	i = 0;
+	if (!matrix || !*matrix)
+		ft_error_general("Invalid Map.");
+	while (matrix[i] != NULL)
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
+	matrix = NULL;
 }
 
 void	ft_free_map_fill(char **matrix, int cols_to_free)
@@ -43,18 +50,11 @@ void	ft_free_map_fill(char **matrix, int cols_to_free)
 	matrix = NULL;
 }
 
-void	ft_free_map_repo(char **matrix)
+void	ft_error_and_free_map(char *msg, t_game *game)
 {
-	int	i;
-
-	i = 0;
-	if (!matrix || !*matrix)
-		ft_error_general("Invalid Map.");
-	while (matrix[i] != NULL)
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-	matrix = NULL;
+	ft_printf("[ERROR] %s\n", msg);
+	ft_free_map_repo(game->map.repo);
+	if (game->map.fill != NULL)
+		ft_free_map_fill(game->map.fill, game->map.columns);
+	exit(1);
 }

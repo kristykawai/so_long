@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/27 20:39:20 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 23:07:59 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
-# include "../miniaudio/miniaudio.h"
 
 /*define*/
 # define MAP_WIDTH	6400 
@@ -43,11 +42,6 @@
 # define XPM_FLOOR			"./assets/xpm/floor.xpm"
 # define XPM_PLAYER			"./assets/xpm/player.xpm"
 # define XPM_WALL			"./assets/xpm/wall.xpm"
-
-/* miniaudio */
-# define MINIAUDIO_IMPLEMENTATION
-/* audio path */
-# define WAV_MUSIC			"./assets/music/346_Town.wav"
 
 enum {
 	ON_KEYDOWN = 2,
@@ -120,6 +114,7 @@ typedef struct s_game
 	t_map			map;
 	t_position		position;
 	int				count;
+	int				count_delete;
 	int				pixel;
 	int				finish_game;
 }				t_game;
@@ -184,9 +179,9 @@ int		handle_keypress(int keycode, t_game *game);
 
 /*delete image*/
 void	delete_item(t_game *game, int x, int y);
-void	delete_collectible(t_game *game);
 void	delete_player(t_game *game);
 void	delete_floor(t_game *game);
+void	delete_collectible(t_game *game);
 void	delete_all_image(t_game *game);
 
 /*exit*/
@@ -196,7 +191,8 @@ int		exit_win_game(t_game *game);
 /*render*/
 void	update_texture(t_game *game);
 int		update_game(void	*param);
+int		is_all_collected(t_game	*game);
 
 /*main*/
-// void	clean_up(t_game *game);
+void	clean_up(t_game *game);
 #endif
