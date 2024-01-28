@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:49:31 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/28 21:44:06 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 23:35:18 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int	update_game(void	*param)
 	mlx_clear_window(game->mlx, game->mlx_win);
 	place_floor_with_texture(game);
 	update_texture(game);
+	display_move_mlx_win(game);
 	return (0);
 }

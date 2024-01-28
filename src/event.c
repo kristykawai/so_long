@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:50:47 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/28 22:32:56 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 23:23:36 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	move_up(t_game *game)
 		game->map.repo[game->position.y - 1][game->position.x] = CHAR_PLAYER;
 		game->position.y -= 1;
 		game->position.move++;
+		ft_printf("Moves: %d\n", game->position.move);
 	}
 }
 
@@ -49,6 +50,7 @@ void	move_down(t_game *game)
 		game->map.repo[game->position.y + 1][game->position.x] = CHAR_PLAYER;
 		game->position.y += 1;
 		game->position.move++;
+		ft_printf("Moves: %d\n", game->position.move);
 	}
 }
 
@@ -69,6 +71,7 @@ void	move_right(t_game *game)
 		game->map.repo[game->position.y][game->position.x + 1] = CHAR_PLAYER;
 		game->position.x += 1;
 		game->position.move++;
+		ft_printf("Moves: %d\n", game->position.move);
 	}
 }
 
@@ -89,8 +92,8 @@ void	move_left(t_game *game)
 		game->map.repo[game->position.y][game->position.x - 1] = 'P';
 		game->position.x -= 1;
 		game->position.move++;
+		ft_printf("Moves: %d\n", game->position.move);
 	}
-	// display_movements_on_screen(game);
 }
 
 int	handle_keypress(int keycode, t_game *game)

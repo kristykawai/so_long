@@ -6,19 +6,11 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:10:21 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/27 20:32:50 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 23:38:42 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void	place_texture(t_game *game)
-{
-	place_xpm_to_img(game, &game->img.floor, XPM_FLOOR);
-	place_xpm_to_img(game, &game->img.wall, XPM_WALL);
-	place_floor_with_texture(game);
-	place_layer_with_texture(game);
-}
 
 void	place_floor_with_texture(t_game *game)
 {
@@ -63,4 +55,23 @@ void	place_layer_with_texture(t_game *game)
 		y++;
 	}
 	game->count = 0;
+}
+
+void	display_move_mlx_win(t_game *game)
+{
+	char	*temp;
+
+	temp = ft_itoa(game->position.move);
+	mlx_string_put(game->mlx, game->mlx_win, 4, 32, 0x00FFFFFF, "Steps: ");
+	mlx_string_put(game->mlx, game->mlx_win, 68, 32, 0x00FFFFFF, temp);
+	free(temp);
+}
+
+void	place_texture(t_game *game)
+{
+	place_xpm_to_img(game, &game->img.floor, XPM_FLOOR);
+	place_xpm_to_img(game, &game->img.wall, XPM_WALL);
+	place_floor_with_texture(game);
+	place_layer_with_texture(game);
+	display_move_mlx_win(game);
 }

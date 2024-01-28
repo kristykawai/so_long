@@ -6,7 +6,7 @@
 /*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/28 23:07:59 by kawai            ###   ########.fr       */
+/*   Updated: 2024/01/28 23:34:45 by kawai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,9 +154,10 @@ void	map_2d_malloc(t_game *game);
 void	init_map(t_game *game);
 
 /*init_map_texture*/
-void	place_texture(t_game *game);
 void	place_floor_with_texture(t_game *game);
 void	place_layer_with_texture(t_game *game);
+void	display_move_mlx_win(t_game *game);
+void	place_texture(t_game *game);
 
 /*init_image*/
 void	init_player(t_game *game, int x, int y);
