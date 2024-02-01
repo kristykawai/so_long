@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_layer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:42:12 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/27 15:39:59 by kawai            ###   ########.fr       */
+/*   Updated: 2024/02/01 16:29:45 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,37 +44,42 @@ void	count_map_entities(char c, t_game *game, unsigned int x, unsigned int y)
 void	check_required_entities(t_game *game)
 {
 	if (game->map.collects < 1)
-		ft_error_and_free_map("Invalid number of collectable, more than one is required", game);
+		ft_error_and_free_map
+			("Invalid number of collectable, more than one is required", game);
 	if (game->map.exits != 1)
-		ft_error_and_free_map("Invalid number of exit, only 1 exit is allowed", game);
+		ft_error_and_free_map
+			("Invalid number of exit, only 1 exit is allowed", game);
 	if (game->map.player != 1)
-		ft_error_and_free_map("Invalid number of player, only one is allowed", game);
+		ft_error_and_free_map
+			("Invalid number of player, only one is allowed", game);
 }
 
-void check_enclosed_wall(t_game *game, unsigned int x, unsigned int y)
+void	check_enclosed_wall(t_game *game, unsigned int x, unsigned int y)
 {
 	if (game->map.repo[0][x] != CHAR_WALL ||
 		game->map.repo[game->map.rows - 1][x] != CHAR_WALL)
-		ft_error_and_free_map("Invalid map: incomplete walls on one or more upper/lower boundaries.", game);
+		ft_error_and_free_map
+		("Invalid map: incomplete walls on upper/lower boundaries.", game);
 	if (game->map.repo[y][0] != CHAR_WALL ||
 		game->map.repo[y][game->map.columns - 1] != CHAR_WALL)
-		ft_error_and_free_map("Invalid map: incomplete walls on one or more left/right boundaries.", game);
+		ft_error_and_free_map
+		("Invalid map: incomplete walls on left/right boundaries.", game);
 }
 
-void init_layer(t_game *game) 
+void	init_layer(t_game *game)
 {
 	unsigned int	x;
 	unsigned int	y;
-	char			currentCharacter;
-	
+	char			character;
+
 	y = 0;
-    while (y < (unsigned int)game->map.rows) 
+	while (y < (unsigned int)game->map.rows)
 	{
 		x = 0;
-        while(x < (unsigned int)game->map.columns) 
+		while (x < (unsigned int)game->map.columns)
 		{
-			currentCharacter = game->map.repo[y][x];
-			count_map_entities(currentCharacter, game, x, y);
+			character = game->map.repo[y][x];
+			count_map_entities(character, game, x, y);
 			check_enclosed_wall(game, x, y);
 			x++;
 		}
@@ -82,5 +87,5 @@ void init_layer(t_game *game)
 	}
 	check_required_entities(game);
 	ft_mcpy_fill(game);
-	flood_fill_check(game,'X');
+	flood_fill_check(game, 'X');
 }

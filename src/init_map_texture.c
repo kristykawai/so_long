@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map_texture.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:10:21 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/28 23:38:42 by kawai            ###   ########.fr       */
+/*   Updated: 2024/02/01 16:29:46 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	place_floor_with_texture(t_game *game)
 		while (x < game->map.columns)
 		{
 			mlx_put_image_to_window (game->mlx, game->mlx_win,
-			game->img.floor, game->pixel * x, game->pixel * y);
+				game->img.floor, game->pixel * x, game->pixel * y);
 			x++;
 		}
 		y++;
