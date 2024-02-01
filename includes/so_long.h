@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:02 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/28 23:34:45 by kawai            ###   ########.fr       */
+/*   Updated: 2024/02/01 16:14:05 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@
 # define XPM_PLAYER			"./assets/xpm/player.xpm"
 # define XPM_WALL			"./assets/xpm/wall.xpm"
 
-enum {
+enum
+{
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -51,7 +52,7 @@ enum {
 	ON_MOUSEMOVE = 6,
 	ON_EXPOSE = 12,
 	ON_DESTROY = 17
-} eventcode;
+} e_eventcode;
 
 # define KEY_A 0
 # define KEY_S 1
@@ -82,7 +83,6 @@ typedef struct s_img
 	t_multi		collect[100];
 }				t_img;
 
-
 typedef struct s_map
 {
 	char	**repo;
@@ -103,10 +103,9 @@ typedef struct s_position
 	unsigned int		move;
 }				t_position;
 
-
 /* game */
 typedef struct s_game
-{	
+{
 	void			*mlx;
 	void			*mlx_win;
 	int				fd;
@@ -116,7 +115,6 @@ typedef struct s_game
 	int				count;
 	int				count_delete;
 	int				pixel;
-	int				finish_game;
 }				t_game;
 
 /* ft_error */
@@ -139,7 +137,8 @@ void	check_valid_map_size(t_game *game);
 
 /*init_layer*/
 int		check_valid_character(const char *s, int c);
-void	count_map_entities(char c, t_game *game, unsigned int x, unsigned int y);
+void	count_map_entities(char c,
+			t_game *game, unsigned int x, unsigned int y);
 void	check_required_entities(t_game *game);
 void	check_enclosed_wall(t_game *game, unsigned int x, unsigned int y);
 void	init_layer(t_game *game);
@@ -166,7 +165,7 @@ void	init_exit(t_game *game, int x, int y);
 
 /*utility*/
 int		ft_readline(char *str);
-void	printCharMatrix(char** matrix, int rows, int cols);
+void	printcharmatrix(char **matrix, int rows, int cols);
 void	place_xpm_to_img(t_game *game, char **img_path, char *xpm_path);
 void	ft_mlx_image_to_window(t_game *game, char *mlx_img, int x, int y);
 void	mlx_delete_image(void *mlx, char *img);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:09:54 by kawai             #+#    #+#             */
-/*   Updated: 2024/01/28 22:51:44 by kawai            ###   ########.fr       */
+/*   Updated: 2024/02/01 16:14:58 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	init_value(t_game *game)
 	game->map.repo = NULL;
 	game->count = 0;
 	game->count_delete = 0;
-	game->finish_game = 0;
 	game->pixel = TILE_WIDTH;
 	game->map.fill = NULL;
 }
