@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floodfill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawai <kawai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:19:04 by kchan             #+#    #+#             */
-/*   Updated: 2024/01/26 22:08:22 by kawai            ###   ########.fr       */
+/*   Updated: 2024/02/01 15:39:44 by kchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ void	check_flood_fill_remain(t_game *game)
 		x = 0;
         while(x < game->map.columns) 
 		{
-			if (ft_strchr("CE", game->map.fill[y][x]) != NULL)
-			{
-				ft_error_and_free_map("Invalid map: there is no valid path", game);
-			}
+			if (ft_strchr("E", game->map.fill[y][x]) != NULL)
+				ft_error_and_free_map("Invalid map: there is no valid path to exit", game);
+			else if (ft_strchr("C", game->map.fill[y][x]) != NULL)
+				ft_error_and_free_map("Invalid map: there is no valid path to at least one remaining collectable", game);
 			x++;
         }
 		y++;
